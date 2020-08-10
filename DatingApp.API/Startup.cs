@@ -43,9 +43,9 @@ namespace DatingApp.API
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
-            services.AddAutoMapper(typeof(DatingRepository).Assembly);                      
-            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddAutoMapper(typeof(DatingRepository).Assembly);                     
             services.AddScoped<IDatingRepository,DatingRepository>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
             // For telling controllers [Authorize] attribute what to do for authorization .
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
