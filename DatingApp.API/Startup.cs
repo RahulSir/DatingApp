@@ -19,7 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Automapper;
+using AutoMapper;
 
 namespace DatingApp.API
 {
@@ -89,11 +89,12 @@ namespace DatingApp.API
                 });
 
                 //app.UseHttpsRedirection();
-                app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                
+            }
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
                 app.UseAuthentication();
                 app.UseMvc();
-            }
         }
     }
 }
