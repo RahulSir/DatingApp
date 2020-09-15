@@ -14,8 +14,10 @@ export class MemberListResolver implements Resolve<User> {
     private router: Router
   ){}
 
+  pageNumber   = 1
+  itemsPerPage = 5
   resolve(route: ActivatedRouteSnapshot): Observable<User>{
-    return this.userService.getUsers().pipe(
+    return this.userService.getUsers(this.pageNumber ,this.itemsPerPage).pipe(
       catchError(error => {
         this.alertify.error("Problem retreiving data");
         this.router.navigate(['/home']);
