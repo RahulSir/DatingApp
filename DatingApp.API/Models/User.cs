@@ -24,5 +24,7 @@ namespace DatingApp.API.Models
 
         public string Interests {get;set;}
         public ICollection<Photo> Photos{get;set;}
+        public ICollection<Like> Likers{get;set;}
+        public ICollection<Like> Likees{get;set;}
     }
 }

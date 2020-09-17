@@ -1,3 +1,4 @@
+import { ListsResolver } from './_resolvers/ListsResolver.ts';
 import { User } from 'src/app/_models/user';
 import { AuthguardGuard } from './_guards/authguard.guard';
 import { MessagesComponent } from './messages/messages.component';
@@ -18,7 +19,11 @@ export const approutes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthguardGuard],
     children: [
-      { path: 'lists', component: ListsComponent },
+      {
+        path: 'lists',
+        component: ListsComponent,
+        resolve: { users: ListsResolver },
+      },
       {
         path: 'members',
         component: MemberListComponent,
@@ -30,8 +35,12 @@ export const approutes: Routes = [
         component: MemberDetailComponent,
         resolve: { user: MemberDetailResolver },
       },
-      {path:'member/edit' , component: MemberEditComponent,
-        resolve :{user : MemberEditResolver} , canDeactivate:[PreventUnsavedChanges]}
+      {
+        path: 'member/edit',
+        component: MemberEditComponent,
+        resolve: { user: MemberEditResolver },
+        canDeactivate: [PreventUnsavedChanges],
+      },
     ],
   },
 
