@@ -15,6 +15,7 @@ export class ListsComponent implements OnInit {
   users: User[];
   pagination: Pagination;
   likesParam: string;
+  // userParams = {gender:'female'};
 
   constructor(
     private alertify: AlertifyService,
@@ -46,6 +47,8 @@ export class ListsComponent implements OnInit {
       )
       .subscribe(
         (res: PaginatedResult<User[]>) => {
+          // console.log("Lists",res.result);
+          console.log(res.result)
           this.users = res.result;
           this.pagination = res.pagination;
         },

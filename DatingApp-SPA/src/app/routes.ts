@@ -1,3 +1,4 @@
+import { MessagesResolver } from './_resolvers/messages-resolver';
 import { ListsResolver } from './_resolvers/ListsResolver.ts';
 import { User } from 'src/app/_models/user';
 import { AuthguardGuard } from './_guards/authguard.guard';
@@ -29,7 +30,11 @@ export const approutes: Routes = [
         component: MemberListComponent,
         resolve: { users: MemberListResolver },
       },
-      { path: 'messages', component: MessagesComponent },
+      {
+        path: 'messages',
+        component: MessagesComponent,
+        resolve: { messages: MessagesResolver },
+      },
       {
         path: 'members/:id',
         component: MemberDetailComponent,

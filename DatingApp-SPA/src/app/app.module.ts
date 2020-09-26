@@ -1,3 +1,5 @@
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { MessagesResolver } from './_resolvers/messages-resolver';
 import { ListsResolver } from './_resolvers/ListsResolver.ts';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { AlertifyService } from './_Service/alertify.service';
@@ -50,7 +52,9 @@ export function tokenGetter() {
     MemberscardComponent,
     MemberDetailComponent,
     MemberEditComponent,
+    MemberMessagesComponent,
     PhotoEditorComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -80,6 +84,7 @@ export function tokenGetter() {
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
+    MessagesResolver,
     ListsResolver,
     PreventUnsavedChanges,
 
